@@ -33,12 +33,10 @@ def import_super():
     final1.append(tuple(row))
   return final1
 def crossmatch(cat,supercat,maximum):
-  count=0
   count1=0
   temp=0
   match=[]
   unmatch=[]
-  original=0
   for j in cat:
     closest_dist = np.inf
     count=0
@@ -55,11 +53,10 @@ def crossmatch(cat,supercat,maximum):
       if d< closest_dist:
         closest_dist = d
         temp=np.degrees(closest_dist)
-        original=count
     if temp>maximum:
       unmatch.append(count1)
     else:
-      match.append((count1,original,temp))
+      match.append((count1,count,temp))
         
   return match,unmatch
 bss_cat = import_bss()
